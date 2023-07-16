@@ -1,6 +1,4 @@
-FROM debian:bookworm-slim
-
-ENV NODE_VERSION 18.16.1
+FROM node:18-alpine
 
 # Set the working directory
 WORKDIR /app
