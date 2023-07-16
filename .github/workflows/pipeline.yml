@@ -35,13 +35,14 @@ jobs:
     
     - name: build and tag image
       run: |
-        docker build -t ${{ secrets.AWS_REGISTRY_URL }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} .
-      # docker tag my-image:latest ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+        docker build -t my-app .
+        docker tag my-app:latest ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
     
     - name: Upload image
       uses: ishworkh/docker-image-artifact-upload@v2.0.1
       with:
-        image: ${{ secrets.AWS_REGISTRY_URL }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+        image: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+    
 
     # - name: upload artifact
     #   uses: actions/upload-artifact@v3
@@ -62,7 +63,8 @@ jobs:
     - name: Download an image
       uses: ishworkh/container-image-artifact-download@v1.0.0
       with:
-        image: ${{ secrets.AWS_REGISTRY_URL }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+        image: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+    
     
     # - name: download artifact to current working dir
     #   uses: actions/download-artifact@v3
@@ -81,7 +83,8 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
     
     - name: push docker image to Amazon ECR
-      run: docker push ${{ secrets.AWS_REGISTRY_URL }}/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+      run: docker push ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
+    
       # env:
       #   REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       #   REPOSITORY: my-ecr-repo
