@@ -76,7 +76,6 @@ jobs:
     # If the output were to be defined in an earlier job,
     # and the current job depends on this earlier job expressed by "needs", to call it in the current job;
     # echo "registry={{ needs.the_job_name.name_of_the_output.registry }}"
-      
     - name: push docker image to Amazon ECR
       # env:
       #   REGISTRY: ${{ steps.login-ecr.outputs.registry }}
