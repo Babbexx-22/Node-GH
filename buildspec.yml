@@ -5,25 +5,19 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing Node.js runtime..."
-    #   - yum update && yum install -y curl
-    #   - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-    #   - yum install -y nodejs
-
-  pre_build:
-    commands:
-      - echo "Logging in to AWS ECR"
-     # - aws ecr get-login-password --region <YOUR_AWS_REGION> | docker login --username AWS --password-stdin <YOUR_ECR_REGISTRY_URL>
-
-  build:
-    commands:
       # Running the node.js app| install dependencies, etc.
       - echo "Building Project.."
       - echo "Build started on `date`"
       - npm ci
-      - npm install pm2 --save-dev
-      - npm run start
+      # - npm install pm2 --save-dev
+      # - npm run start
 
+  pre_build:
+    commands:
+      - echo "Logging in to AWS ECR"
+
+  build:
+    commands:
       # Building Docker image
       - echo "Building Docker image"
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
