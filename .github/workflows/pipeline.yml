@@ -70,12 +70,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
     
-    # - name: set output for registry url
-    #   run: |
-    #     echo "registry=${{ secrets.AWS_REGISTRY_URL }}" >> $GITHUB_OUTPUT
-    # If the output were to be defined in an earlier job,
-    # and the current job depends on this earlier job expressed by "needs", to call it in the current job;
-    # echo "registry={{ needs.the_job_name.name_of_the_output.registry }}"
     - name: push docker image to Amazon ECR
       # env:
       #   REGISTRY: ${{ steps.login-ecr.outputs.registry }}
