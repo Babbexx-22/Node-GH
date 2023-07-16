@@ -1,5 +1,6 @@
-# Use the Node.js 18 base image
-FROM node:18
+FROM debian:bookworm-slim
+
+ENV NODE_VERSION 18.16.1
 
 # Set the working directory
 WORKDIR /app
