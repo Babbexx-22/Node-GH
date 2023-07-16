@@ -71,10 +71,11 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
     
     - name: push docker image to Amazon ECR
+      run: |
+        docker push ${{ secrets.AWS_REGISTRY_URL }}/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
       # env:
       #   REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       #   REPOSITORY: my-ecr-repo
       #   IMAGE_TAG: latest
-      run: |
+      
 # docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        docker push ${{ secrets.AWS_REGISTRY_URL }}/${{ secrets.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
