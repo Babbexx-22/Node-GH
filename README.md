@@ -139,3 +139,11 @@ push:
 ![PIPE 3](https://github.com/Babbexx-22/Node-GH/assets/114196715/d31ff817-d949-4464-a7bf-20558a66e20d)
 
 ![PIPE 4](https://github.com/Babbexx-22/Node-GH/assets/114196715/de5a1b82-e95e-4147-b6ab-a322a0193efb)
+
+The docker image was successfully pushed to Amazon ECR
+
+![image pushed](https://github.com/Babbexx-22/Node-GH/assets/114196715/c60ea939-c4f5-43c8-8274-d98b21dc6ee7)
+
+------------------------
+THE END
+------------------------
