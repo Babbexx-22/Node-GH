@@ -2,6 +2,11 @@
 
 In the previous project, [AWS-CICD-Pipeline-Project](https://github.com/Babbexx-22/AWS-CICD-Pipeline-Project/tree/main), Continuous integration was carried out using AWS code commit as the version control system while AWS code build was used for continuous integration. Here, we shall employ the use of github and github actions accordingly.
 
+----------------------------------------
+**LATER EXPLORATION**: "OPENID Connect". This allows GitHub Actions workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived GitHub secrets.
+RESOURCES: [OIDC WITH AWS](https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/)
+----------------------------------------
+
 ## PREREQUISITES
 
 - GitHub Account: You need a GitHub account to create and manage repositories.
